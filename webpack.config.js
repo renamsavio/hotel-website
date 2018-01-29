@@ -18,15 +18,15 @@ const config = {
                 exclude: /node_modules/,
                 use: 'babel-loader'
             },
-            {
-                test: /\.(png|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {}
-                    }
-                ]
-            },
+            // {
+            //     test: /\.(png|jpg|gif)$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {}
+            //         }
+            //     ]
+            // },
             {
                 test: /\.svg$/,
                 loader: 'svg-inline-loader'
@@ -36,15 +36,26 @@ const config = {
                 use: ['style-loader', 'css-loader']
             },
             {
-            test: /\.scss$/,
-            use: [{
-                loader: "style-loader" // creates style nodes from JS strings 
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS 
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS 
-            }]
-        }
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings 
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS 
+                }, {
+                    loader: "sass-loader" // compiles Sass to CSS 
+                }]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192
+                        }
+                    }
+                ]
+            }
 
 
         ]
