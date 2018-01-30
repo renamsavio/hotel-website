@@ -4,10 +4,12 @@ import HotelItem from '../HotelItem/HotelItem'
 import { saveJsonData } from '../../actions/'
 import { connect } from 'react-redux'
 
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
 import './BottomPanel.scss'
 
 class BottomPanel extends React.Component {
-  
+
   componentWillMount() {
     console.log(this.props)
     let dispatch = this.props.dispatch
@@ -19,31 +21,29 @@ class BottomPanel extends React.Component {
         dispatch(saveJsonData(res))
         console.log('...dispatched')
       }
-    )
+      )
   }
 
   render() {
     return (
-      <div className="BottomPanel-Main" >
-        <div className="BottomPanel-title">Best choices between and </div>
-        <div className="BottomPanel-content">
-          <div className="BottomPanel-content-Filter">
-            <Filter />
-          </div>
-          <div className="BottomPanel-content-Items">
+      <Grid fluid>
+        <Row center="xs" style={{"margin-bottom": "30px"}}>Best choices between dateStart and dateEnd</Row>
+        <Row>
+          <Col xs={5} md={2}><Filter /></Col>
+          <Col xs>
             {this.props.data.map((hotel) =>
-            <HotelItem 
-              key={hotel.id} 
-              description={hotel.description}
-              name={hotel.name} 
-              rate={hotel.rate} 
-              image={hotel.image}
-              price={hotel.price}/>
-          )}
-          </div>
-        </div>
-      </div >
-    );
+              <HotelItem
+                key={hotel.id}
+                description={hotel.description}
+                name={hotel.name}
+                rate={hotel.rate}
+                image={hotel.image}
+                price={hotel.price} />
+            )}
+          </Col>
+        </Row>
+      </Grid>
+    )
   }
 }
 

@@ -1,9 +1,18 @@
-.Filter {
+.Filter * {
   width: 100%;
   font-family: 'Heebo', 'sans-serif';
+} 
+
+.Filter-Min {
+  font-family: 'Heebo', 'sans-serif';
+  font-size: 12px;
+  font-weight: none;
+  color: grey;
 }
 
-.Filter-Title {
-  font-weight: bold;
-  text-align: center;
+.Filter-Max {
+  font-family: 'Heebo', 'sans-serif';
+  font-size: 12px;
+  font-weight: none;
+  color: grey;
 }
