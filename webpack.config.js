@@ -33,12 +33,18 @@ const config = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader'],
+                exclude: /flexboxgrid/
+            },
+            {
+                test: /\.css$/,
+                loader: 'style-loader!css-loader',
+                include: /flexboxgrid/
             },
             {
                 test: /\.scss$/,
                 use: [{
-                    loader: "style-loader" // creates style nodes from JS strings 
+                    loader: "style-loader" // creates style nodes from JS strings kk
                 }, {
                     loader: "css-loader" // translates CSS into CommonJS 
                 }, {

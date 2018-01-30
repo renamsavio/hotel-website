@@ -23,8 +23,6 @@ class BottomPanel extends React.Component {
   }
 
   render() {
-    console.log('showing props..')
-    console.log(this.props)
     return (
       <div className="BottomPanel-Main" >
         <div className="BottomPanel-title">Best choices between and </div>
@@ -34,8 +32,14 @@ class BottomPanel extends React.Component {
           </div>
           <div className="BottomPanel-content-Items">
             {this.props.data.map((hotel) =>
-            <HotelItem key={hotel.id} description={hotel.description} name={hotel.name} rate={hotel.rate} image={hotel.image}/>
-          )}}
+            <HotelItem 
+              key={hotel.id} 
+              description={hotel.description}
+              name={hotel.name} 
+              rate={hotel.rate} 
+              image={hotel.image}
+              price={hotel.price}/>
+          )}
           </div>
         </div>
       </div >
