@@ -9,7 +9,7 @@ const style = {
 
 const SearchButton = () => (
   <div className="SearchButton-main">
-    <RaisedButton label="Search" primary={true} style={style} />
+    <RaisedButton label="Search hotels" primary={true} style={style} />
   </div>
 )
 

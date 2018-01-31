@@ -1,6 +1,8 @@
 import React from 'react'
 import RaisedButton from 'material-ui/RaisedButton';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { toggleModal } from '../../actions/'
+import { connect } from 'react-redux'
 
 import './HotelItemButtons.scss'
 
@@ -18,13 +20,19 @@ const style = {
   }
 };
 
-const HotelItemButtons = () => (
+const HotelItemButtons = ({dispatch}) => (
   <Row start="xs">
     <Col xs={12}>
-      <RaisedButton label="Book Now" style={style.booking} backgroundColor="white" labelColor="orange" />
-      <RaisedButton label="Price History" style={style.price_history} backgroundColor="white" labelColor="green" />
+      <RaisedButton label="Book Now" style={style.booking} backgroundColor="white" /*labelColor="orange"*/ />
+      <RaisedButton label="Price History" style={style.price_history} backgroundColor="white" /*labelColor="green"*/ onClick={() => dispatch(toggleModal())}/>
     </Col>
   </Row>
 )
 
-export default HotelItemButtons
+const mapStateToProps = state => {
+  return {
+    data: state.data.data.hotels
+  }
+};
+
+export default connect(mapStateToProps)(HotelItemButtons)

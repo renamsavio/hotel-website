@@ -11,3 +11,9 @@ export const saveJsonData = data => {
     newValue: data
   }
 }
+
+export const toggleModal = () => {
+  return {
+    type: 'TOGGLE_MODAL'
+  }
+}

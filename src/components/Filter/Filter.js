@@ -13,14 +13,15 @@ class Filter extends React.Component {
 
     this.state = {
       value: { min: 0, max: 599 },
+      rate: 0
     };
   }
   
   render() {
     return (
       <div>
-        <Row><Col xs style={{ 'text-align': 'center', 'font-weight': 'bold' }}>Filters</Col></Row>
-        <Row style={{ 'font-family': 'Heebo, sans-serif', 'font-size': '12px', color: 'grey', 'text-align': 'left', 'margin-top': '40px' }}>
+        <Row><Col xs style={{ textAlign: 'center', fontWeight: 'bold' }}>Filters</Col></Row>
+        <Row style={{ fontFamily: 'Heebo, sans-serif', fontSize: '12px', color: 'grey', textAlign: 'left', marginTop: '40px' }}>
           Price Range
         </Row>
         <InputRange
@@ -29,20 +30,22 @@ class Filter extends React.Component {
           value={this.state.value}
           formatLabel={()=>null}
           onChange={value => this.setState({ value })} />
-        <div className="Filter-Min" style={{"text-align": "left", "width": "50%", "display": "inline-block"}}>Min</div>
-        <div className="Filter-Max" style={{"text-align": "right", "width": "50%", "display": "inline-block"}}>Max</div>
-        <div className="Filter-Min" style={{"text-align": "left", "width": "50%", "display": "inline-block", color:'orange', fontWeight: 'bold', fontSize: '16px'}}>${this.state.value.min}</div>
-        <div className="Filter-Max" style={{"text-align": "right", "width": "50%", "display": "inline-block", color:'orange', fontWeight: 'bold', fontSize: '16px'}}>${this.state.value.max}</div>
+        <div className="Filter-Min" style={{textAlign: "left", width: "50%", display: "inline-block"}}>Min</div>
+        <div className="Filter-Max" style={{textAlign: "right", width: "50%", display: "inline-block"}}>Max</div>
+        <div className="Filter-Min" style={{textAlign: "left", width: "50%", display: "inline-block", color:'orange', fontWeight: 'bold', fontSize: '16px'}}>${this.state.value.min}</div>
+        <div className="Filter-Max" style={{textAlign: "right", width: "50%", display: "inline-block", color:'orange', fontWeight: 'bold', fontSize: '16px'}}>${this.state.value.max}</div>
 
         <hr style={{'border': '0.1px solid grey'}}/>
-
-        
         <Row className="Filter-Min">Stars</Row>
         <Row>
           <Rating
-            value={3}
+            value={this.state.rate}
             max={5}
-            onChange={(value) => console.log(`Rated with value ${value}`)} />
+            onChange={
+              (rate) => {
+                this.setState({rate})
+              }
+          } />
         </Row>
       </div>
     )

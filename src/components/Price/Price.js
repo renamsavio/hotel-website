@@ -4,7 +4,7 @@ import { Row , Col } from 'react-flexbox-grid';
 const Price = (props) => (
   <div style={{height: '100%',  margin: '50px'}}>
     <span style={{width: '100%', display: 'inline-grid'}}>Total</span>
-    <span style={{color: 'green', fontWeight: 'bold', fontSize: '32px', fontFamily: 'Heebo, sans-serif'}}>${props.price}</span>
+    <span style={{color: 'limeGreen', fontWeight: 'bold', fontSize: '32px', fontFamily: 'Heebo, sans-serif'}}>${Math.trunc(props.price)}</span>
   </div>
 )
 
