@@ -11,6 +11,8 @@ import moment from 'moment'
 import reducers from './reducers'
 import SearchButton from './components/SearchButton/SearchButton'
 import BottomPanel from './components/BottomPanel/BottomPanel'
+import OverlayObjects from './components/OverlayObjects/OverlayObjects'
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import './App.scss'
 
@@ -18,30 +20,29 @@ class AppMain extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <InlineSVG className="App-icon" src={require("./images/crown.svg")} />
-          <img src={hero} className="App-img-hero"></img>
-          <div className="App-img-text">WELCOME TO</div>
-          <hr className="App-img-hrl-up" color="white" width="50%" />
-          <div className="App-img-name"><b>CHARLOTTE</b></div>
-          <hr className="App-img-hrl-down" color="white" width="50%" />
-          <div className="App-img-desc"><b>THE QUEEN CITY</b></div>
+        <div className="App-header" style={{ backgroundColor: 'blue', left: '0px', top: 'auto', height: '350px' }}>
+          <OverlayObjects />
         </div>
-        <Rectangle aspectRatio={[5, 3]}>
-          <div style={{ background: 'grey', float: 'left', width: '60%', height: '50%', top: '20%', left: '50%', position: 'absolute', transform: 'translate(-50%, -50%)' }} >
-            <div className="App-form">
-              <div className="App-form-title"><span>Select the dates to stay in Charlotte</span></div>
-              <div className="App-form-left">
+        <div style={{ backgroundColor: 'white', position: 'relative', bottom: '50px', marginLeft: '15%', marginRight: '15%' }}>
+          <Grid fluid>
+            <Row center="xs" style={{ paddingBottom: "20px", paddingTop: "30px", fontWeight: "bold" }}>
+              <Col>Select the dates to stay in Charlotte</Col>
+            </Row>
+            <Row around="xs">
+              <Col xs={3} style={{ textAlign: "center" }}>
                 <DateDisplay className="App-form-datedisplay" dates={{ checkin: this.props.dates.checkin, checkout: this.props.dates.checkout }} />
                 <SearchButton />
-              </div>
-              <div className="App-form-daterange">
+              </Col>
+              <Col xs={8} center="xs" style={{ textAlign: "center" }}>
                 <Calendar />
-              </div>
-            </div>
-          </div>
-        </Rectangle>
-        <BottomPanel />
+              </Col>
+            </Row>
+
+          </Grid>
+        </div>
+        <div>
+          <BottomPanel />
+        </div>
       </div >
     )
 
@@ -50,7 +51,7 @@ class AppMain extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    dates: state.dates
+    dates: state.dates.dates
   }
 };
 export default connect(mapStateToProps)(AppMain)

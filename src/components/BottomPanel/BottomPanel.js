@@ -12,7 +12,6 @@ import './BottomPanel.scss'
 class BottomPanel extends React.Component {
 
   componentWillMount() {
-    console.log(this.props)
     let dispatch = this.props.dispatch
     fetch('https://www.raphaelfabeni.com.br/rv/hotels.json')
       .then(function (response) {
@@ -20,9 +19,8 @@ class BottomPanel extends React.Component {
       })
       .then((res) => {
         dispatch(saveJsonData(res))
-        console.log('...dispatched')
       }
-      )
+    )
   }
 
   render() {
@@ -33,8 +31,8 @@ class BottomPanel extends React.Component {
         </PriceHistoryModal>
         <Grid fluid>
           <Row center="xs" style={{ marginBottom: "30px" }}>Best choices between dateStart and dateEnd</Row>
-          <Row>
-            <Col xs={5} md={2}><Filter /></Col>
+          <Row center="xs">
+            <Col xs={8} md={2}><Filter /></Col>
             <Col xs>
               {this.props.data.map((hotel, index) =>
                 <HotelItem
@@ -57,7 +55,6 @@ class BottomPanel extends React.Component {
 const mapStateToProps = state => {
   return {
     data: state.data.data.hotels
-    //chartData: state.modal.data
   }
 };
 

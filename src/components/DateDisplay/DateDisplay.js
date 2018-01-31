@@ -4,6 +4,7 @@ import moment from 'moment'
 import './DateDisplay.css'
 
 const DateDisplay = props => {
+  console.log(props.date)
   return ( 
   <div className="DateDisplay-main">
     <h2>CHECK-IN</h2>
