@@ -25,7 +25,7 @@ const HotelItem = (props) => (
         <Row style={{fontSize: '12px', color: 'grey', paddingBottom: '40px'}}>
           {props.description}
         </Row>
-        <HotelItemButtons />
+        <HotelItemButtons priceHistory={props.price_history}/>
       </Col>
       <Col xs={6} md={2}>
         <Price price={props.price}/>

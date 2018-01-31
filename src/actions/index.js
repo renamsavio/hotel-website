@@ -12,8 +12,9 @@ export const saveJsonData = data => {
   }
 }
 
-export const toggleModal = () => {
+export const toggleModal = priceHistory => {
   return {
-    type: 'TOGGLE_MODAL'
+    type: 'TOGGLE_MODAL',
+    priceHistory: priceHistory
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
-import RaisedButton from 'material-ui/RaisedButton';
-import { Grid, Row, Col } from 'react-flexbox-grid';
+import RaisedButton from 'material-ui/RaisedButton'
+import { Grid, Row, Col } from 'react-flexbox-grid'
 import { toggleModal } from '../../actions/'
 import { connect } from 'react-redux'
 
@@ -20,14 +20,24 @@ const style = {
   }
 };
 
-const HotelItemButtons = ({dispatch}) => (
-  <Row start="xs">
+class HotelItemButtons extends React.Component  {
+  constructor(props) {
+    super()
+    this.priceHistory = props.priceHistory
+    this.dispatch = props.dispatch
+  }
+
+  render() {
+    console.log(this.priceHistory)
+ return ( <Row start="xs">
     <Col xs={12}>
       <RaisedButton label="Book Now" style={style.booking} backgroundColor="white" /*labelColor="orange"*/ />
-      <RaisedButton label="Price History" style={style.price_history} backgroundColor="white" /*labelColor="green"*/ onClick={() => dispatch(toggleModal())}/>
+      <RaisedButton label="Price History" style={style.price_history} backgroundColor="white" /*labelColor="green"*/ onClick={() => this.dispatch(toggleModal(this.priceHistory))}/>
     </Col>
-  </Row>
-)
+  </Row> );
+
+  }
+}
 
 const mapStateToProps = state => {
   return {

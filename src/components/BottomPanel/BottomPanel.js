@@ -4,6 +4,7 @@ import HotelItem from '../HotelItem/HotelItem'
 import { saveJsonData } from '../../actions/'
 import { connect } from 'react-redux'
 import PriceHistoryModal from '../Modal/PriceHistoryModal'
+import PriceHistoryBarChart from '../PriceHistoryBarChart/PriceHistoryBarChart'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import './BottomPanel.scss'
@@ -27,7 +28,9 @@ class BottomPanel extends React.Component {
   render() {
     return (
       <div>
-        <PriceHistoryModal />
+        <PriceHistoryModal>
+          <PriceHistoryBarChart />
+        </PriceHistoryModal>
         <Grid fluid>
           <Row center="xs" style={{ marginBottom: "30px" }}>Best choices between dateStart and dateEnd</Row>
           <Row>
@@ -40,7 +43,8 @@ class BottomPanel extends React.Component {
                   name={hotel.name}
                   rate={hotel.rate}
                   image={hotel.image}
-                  price={hotel.price} />
+                  price={hotel.price}
+                  price_history={hotel.price_history} />
               )}
             </Col>
           </Row>
@@ -52,8 +56,8 @@ class BottomPanel extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    data: state.data.data.hotels,
-
+    data: state.data.data.hotels
+    //chartData: state.modal.data
   }
 };
 

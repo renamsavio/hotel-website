@@ -25,11 +25,11 @@ class PriceHistoryModal extends React.Component {
     return (
       <div>
         <Dialog
-          title="Price History"
+          title="Price History for 2017"
           actions={actions}
           modal={true}
           open={this.props.modalIsOpen}>
-          Only actions can close this dialog.
+          {this.props.children}
         </Dialog>
       </div>
     );
