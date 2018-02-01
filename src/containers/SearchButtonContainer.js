@@ -4,17 +4,13 @@ import { makeRequest } from '../helpers/request'
 import SearchButton from '../components/SearchButton/SearchButton'
 
 const mapStateToProps = (state, ownProps) => {
-  return {
-    //active: ownProps.filter === state.visibilityFilter
-  }
+  return {}
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  
   return {
     onClick: () => {
       dispatch(makeRequest(ownProps.url))
-      //dispatch(fetchHotelData(ownProps.url))
     }
   }
 }

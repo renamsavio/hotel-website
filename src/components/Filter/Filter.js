@@ -2,6 +2,7 @@ import React from 'react'
 import { Rating } from 'material-ui-rating'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import InputRange from 'react-input-range'
+import PropTypes from 'prop-types'
 
 import style from 'react-input-range/lib/css/index.css'
 
@@ -9,12 +10,14 @@ import './Filter.scss'
 
 class Filter extends React.Component {
   constructor(props) {
-    super(props);
+    super();
 
     this.state = {
-      value: { min: 0, max: 599 },
+      sliderValue: { min: 0, max: 600 },
       rate: 0
     };
+
+    this.onChange = props.onChange
   }
   
   render() {
@@ -27,13 +30,19 @@ class Filter extends React.Component {
         <InputRange
           maxValue={600}
           minValue={0}
-          value={this.state.value}
+          value={this.state.sliderValue}
           formatLabel={()=>null}
-          onChange={value => this.setState({ value })} />
+          onChange={
+            sliderValue => {
+              this.setState({ sliderValue })
+              //this.onChange(this.state)
+            }
+          }
+           />
         <div className="Filter-Min" style={{textAlign: "left", width: "50%", display: "inline-block"}}>Min</div>
         <div className="Filter-Max" style={{textAlign: "right", width: "50%", display: "inline-block"}}>Max</div>
-        <div className="Filter-Min" style={{textAlign: "left", width: "50%", display: "inline-block", color:'orange', fontWeight: 'bold', fontSize: '16px'}}>${this.state.value.min}</div>
-        <div className="Filter-Max" style={{textAlign: "right", width: "50%", display: "inline-block", color:'orange', fontWeight: 'bold', fontSize: '16px'}}>${this.state.value.max}</div>
+        <div className="Filter-Min" style={{textAlign: "left", width: "50%", display: "inline-block", color:'orange', fontWeight: 'bold', fontSize: '16px'}}>${this.state.sliderValue.min}</div>
+        <div className="Filter-Max" style={{textAlign: "right", width: "50%", display: "inline-block", color:'orange', fontWeight: 'bold', fontSize: '16px'}}>${this.state.sliderValue.max}</div>
 
         <hr style={{'border': '0.1px solid grey'}}/>
         <Row className="Filter-Min">Stars</Row>
@@ -50,6 +59,10 @@ class Filter extends React.Component {
       </div>
     )
   }
+}
+
+Filter.propTypes = {
+  onChange: PropTypes.func.isRequired
 }
 
 export default Filter

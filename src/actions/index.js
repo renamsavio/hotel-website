@@ -25,3 +25,10 @@ export const fetchHotelData = url => {
     url: url
   }
 }
+
+export const updateFilter = (filter) => {
+  return {
+    type: 'FILTER_HOTEL_DATA',
+    filter: filter
+  }
+}

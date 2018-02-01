@@ -24,7 +24,7 @@ class AppMain extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header" style={{ backgroundColor: 'blue', left: '0px', top: 'auto', height: '350px' }}>
+        <div className="App-header" style={{ left: '0px', top: 'auto', height: '350px' }}>
           <OverlayObjects />
         </div>
         <div style={{ backgroundColor: 'white', position: 'relative', bottom: '50px', marginLeft: '15%', marginRight: '15%' }}>

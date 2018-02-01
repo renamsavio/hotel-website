@@ -20,7 +20,7 @@ const style = {
   }
 };
 
-class HotelItemButtons extends React.Component  {
+class HotelItemButtons extends React.Component {
   constructor(props) {
     super()
     this.priceHistory = props.priceHistory
@@ -28,13 +28,12 @@ class HotelItemButtons extends React.Component  {
   }
 
   render() {
-    console.log(this.priceHistory)
- return ( <Row start="xs">
-    <Col xs={12}>
-      <RaisedButton label="Book Now" style={style.booking} backgroundColor="white" /*labelColor="orange"*/ />
-      <RaisedButton label="Price History" style={style.price_history} backgroundColor="white" /*labelColor="green"*/ onClick={() => this.dispatch(toggleModal(this.priceHistory))}/>
-    </Col>
-  </Row> );
+    return (<Row start="xs">
+      <Col xs={12}>
+        <RaisedButton label="Book Now" style={style.booking} backgroundColor="white" /*labelColor="orange"*/ />
+        <RaisedButton label="Price History" style={style.price_history} backgroundColor="white" /*labelColor="green"*/ onClick={() => this.dispatch(toggleModal(this.priceHistory))} />
+      </Col>
+    </Row>);
 
   }
 }

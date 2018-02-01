@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import PriceHistoryModal from '../Modal/PriceHistoryModal'
 import PriceHistoryBarChart from '../PriceHistoryBarChart/PriceHistoryBarChart'
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import FilterContainer from '../../containers/FilterContainer'
 import moment from 'moment'
 
 import './BottomPanel.scss'
@@ -21,7 +22,7 @@ class BottomPanel extends React.Component {
           <Grid fluid>
             <Row center="xs" style={{ marginBottom: "30px" }}>Best choices between <b>{moment(this.props.dates.checkin).format("MMMM Do YYYY")}</b> and <b>{moment(this.props.dates.checkout).format("MMMM Do YYYY")}</b></Row>
             <Row center="xs">
-              <Col xs={8} md={2}><Filter /></Col>
+              <Col xs={8} md={2}><FilterContainer  /></Col>
               <Col xs>
                 {this.props.data.map((hotel, index) =>
                   <HotelItem
