@@ -10,11 +10,14 @@ import Calendar from './components/Calendar/Calendar'
 import moment from 'moment'
 import reducers from './reducers'
 import SearchButton from './components/SearchButton/SearchButton'
+import SearchButtonContainer from './containers/SearchButtonContainer'
 import BottomPanel from './components/BottomPanel/BottomPanel'
 import OverlayObjects from './components/OverlayObjects/OverlayObjects'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 import './App.scss'
+
+const URL_HOTEL_DATA = "https://www.raphaelfabeni.com.br/rv/hotels.json"
 
 class AppMain extends React.Component {
   render() {
@@ -31,13 +34,12 @@ class AppMain extends React.Component {
             <Row around="xs">
               <Col xs={3} style={{ textAlign: "center" }}>
                 <DateDisplay className="App-form-datedisplay" dates={{ checkin: this.props.dates.checkin, checkout: this.props.dates.checkout }} />
-                <SearchButton />
+                <SearchButtonContainer url={URL_HOTEL_DATA} />
               </Col>
               <Col xs={8} center="xs" style={{ textAlign: "center" }}>
                 <Calendar />
               </Col>
             </Row>
-
           </Grid>
         </div>
         <div>

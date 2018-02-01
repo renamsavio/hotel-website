@@ -18,3 +18,10 @@ export const toggleModal = priceHistory => {
     priceHistory: priceHistory
   }
 }
+
+export const fetchHotelData = url => {
+  return {
+    type: 'FETCH_HOTEL_DATA',
+    url: url
+  }
+}

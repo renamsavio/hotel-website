@@ -2,8 +2,6 @@ import React from 'react'
 import InlineSVG from 'svg-inline-react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import './OverlayObjects.scss'
-
 const OverLayObjects = () => {
   return (
     <Grid fluid style={{height: "100%"}}>
