@@ -9,8 +9,6 @@ export const data = (state = INITIAL_STATE, action) => {
     case 'SAVE_JSON_DATA':
       return { data: action.newValue }
     case 'FILTER_HOTEL_DATA':
-      console.log("logando data")
-      //console.log(action.data)
       return { filter: action.filter }
     default:
       return state
