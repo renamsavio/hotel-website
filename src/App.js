@@ -14,6 +14,7 @@ import SearchButtonContainer from './containers/SearchButtonContainer'
 import BottomPanel from './components/BottomPanel/BottomPanel'
 import OverlayObjects from './components/OverlayObjects/OverlayObjects'
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import Footer from './components/Footer/Footer'
 
 import './App.scss'
 
@@ -45,6 +46,7 @@ class AppMain extends React.Component {
         <div>
           <BottomPanel />
         </div>
+        <Footer />
       </div >
     )
 
